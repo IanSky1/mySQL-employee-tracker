@@ -1,4 +1,18 @@
 const inquirer = require('inquirer');
-const db = require('./db/connection');
 const cTable = require('console.table');
 const mysql = require("mysql2");
+const db = require('./db/connection');
+const Connection = require('mysql2/typings/mysql/lib/Connection');
+
+let roleArray = [];
+let departmentArray = [];
+let employeeArray = [];
+
+Connection.connect((err) => {
+    if (err) {
+        console.log('ERROR! You are not connected!');
+    } else {
+        console.log("You are connected to the Employee-Tracker app!")
+    }
+    startPrompt();
+});
