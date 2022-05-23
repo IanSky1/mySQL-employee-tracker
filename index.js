@@ -24,6 +24,21 @@ inquirer
     type: "list",
     message: "Welcome to Employee-Tracker! Who would you like to track?",
     choices: [
-        "View all employees"
+        "View all employees",
+        "View all roles",
+        "View all departments",
+        "View all employees by role",
+        "View all employees by department",
+        "View all employees by manager",
+        "Add an employee",
+        "Add a role",
+        "Add a department",
+        "Update an employee",
+        "Update an employee's role",
+        "Update employee manager",
+        "Delete an employee",
+        "Delete role",
+        "Delete a department",
+        "View a department's budget"
     ]
 })}
