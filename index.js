@@ -1,12 +1,8 @@
 const inquirer = require('inquirer');
 const cTable = require('console.table');
-const mysql = require("mysql2");
+const mysql = require("mysql");
 const db = require('./db/connection');
-const Connection = require('mysql2/typings/mysql/lib/Connection');
 
-let roleArray = [];
-let departmentArray = [];
-let employeeArray = [];
 
 Connection.connect((err) => {
     if (err) {
@@ -41,4 +37,22 @@ inquirer
         "Delete a department",
         "View a department's budget"
     ]
-})}
+})
+.then(answer => {
+    switch (answer.action) {
+        case "View all employees":
+            viewAllEmployees();
+            break;
+        case "View all roles":
+            viewAllRoles();
+            break;
+        case "View all departments":
+            viewAllDepartments();
+            break;
+        case "View all employees by role":
+            viewAllEmployeesByRole();
+            break;
+
+    }
+})
+};
