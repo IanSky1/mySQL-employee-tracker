@@ -16,3 +16,14 @@ Connection.connect((err) => {
     }
     startPrompt();
 });
+
+function startPrompt() {
+inquirer
+.prompt({
+    name: "action",
+    type: "list",
+    message: "Welcome to Employee-Tracker! Who would you like to track?",
+    choices: [
+        "View all employees"
+    ]
+})}
