@@ -2,6 +2,8 @@ const inquirer = require('inquirer');
 const cTable = require('console.table');
 const mysql = require("mysql");
 const db = require('./db/connection');
+const { finished } = require('stream');
+const Connection = require('mysql2/typings/mysql/lib/Connection');
 
 
 Connection.connect((err) => {
@@ -34,7 +36,8 @@ inquirer.prompt({
         "Delete an employee",
         "Delete role",
         "Delete a department",
-        "View a department's budget"
+        "View a department's budget",
+        "Finish"
     ]
 })
 .then(answer => {
@@ -66,8 +69,48 @@ inquirer.prompt({
         case "Add an employee":
             addAnEmployee();
             break;
-            
+        
+        case "Add a role":
+            addRole();
+            break;
+        
+        case "Add a department":
+            addDepartment();
+            break;
+        
+        case "Update an employee":
+            updateAnEmployee();
+            break;
+        
+        case "Update an employee's role":
+            updateEmployeeRole();
+            break;
+        
+        case "Update an employee's manager":
+            updateEmployeeManager();
+            break;
+        
+        case "Delete an employee":
+            deleteEmployee();
+            break;
+        
+        case "Delete a role":
+            deleteRole();
+            break;
+        
+        case "Delete a department":
+            deleteDepartment();
+            break;
 
+        case "View a department's budget":
+            viewDepartmentBudget();
+            break;
+        
+        case "Finished":
+            finished();
+            break;
+
+        
     }
 })
 };
