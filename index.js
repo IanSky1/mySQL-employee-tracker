@@ -14,8 +14,7 @@ Connection.connect((err) => {
 });
 
 function startPrompt() {
-inquirer
-.prompt({
+inquirer.prompt({
     name: "action",
     type: "list",
     message: "Welcome to Employee-Tracker! Who would you like to track?",
@@ -43,15 +42,31 @@ inquirer
         case "View all employees":
             viewAllEmployees();
             break;
+        
         case "View all roles":
             viewAllRoles();
             break;
+        
         case "View all departments":
             viewAllDepartments();
             break;
+        
         case "View all employees by role":
             viewAllEmployeesByRole();
             break;
+        
+        case "View all employees by department":
+            viewAllEmployeesByDepartment();
+            break;
+        
+        case "View all employees by manager":
+            viewAllEmployeesByManager();
+            break;
+        
+        case "Add an employee":
+            addAnEmployee();
+            break;
+            
 
     }
 })
